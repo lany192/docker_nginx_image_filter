@@ -1,10 +1,10 @@
-version: '2.1'
+version: '3.8'
 
 services:
-  nginx-images:
+  image-nginx:
     build: .
-    container_name: nginx-images
-    volumes: 
-      - ./test:/var/www/images
+    container_name: my-image-nginx
+    volumes:
+      - ./images:/var/www/images
     ports:
-      - 8080:80
+      - 80:80

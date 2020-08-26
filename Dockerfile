@@ -1,4 +1,4 @@
-FROM nginx:stable
+FROM nginx:latest
 
 RUN mkdir /cache && chmod 777 /cache
 COPY nginx.conf /etc/nginx/nginx.conf
