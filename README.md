@@ -1,20 +1,28 @@
-# Nginx: Real time image resizing and caching
+# 构建可缩放和缓存图片的nginx 镜像
 
+    注意：对于大流量和大尺寸的图片需求，不建议使用该镜像，实时处理，量大影响性能
+    
 ## Docker Image
 
 * exposes port 80
 * cache space pointing to /cache
 
-### Usage
+## 构建
 
-```docker run -v /my/images/path:/var/www/images lany192/nginx-images```
+    docker build -t nginx:image . 
 
-* http://localhost/test.jpg?w=350
+## 使用
 
-| Query-parameter | Description |
-|---|---|
-| w | Resized width in pixels |
-| h | Resized height in pixels |
-| q | Compression percentage |
+    docker run -p 80:80 -name my-image-nginx -v /my/images:/var/www/images nginx:image 
+    
+## 示例
+    
+    http://localhost/test.jpg?w=350&h=350
 
-All parameters are optional.
+## 参数
+
+| 参数 | 描述 | 是否可选
+|---|---|---|
+| w | 指定宽度 | 可选
+| h | 指定高度 | 可选
+| q | 压缩质量 | 可选
