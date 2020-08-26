@@ -5,6 +5,6 @@ services:
     build: .
     container_name: my-image-nginx
     volumes:
-      - ./images:/var/www/images
+      - ./my/images:/var/www/images
     ports:
       - 80:80
